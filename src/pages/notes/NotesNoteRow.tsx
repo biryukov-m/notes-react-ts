@@ -8,19 +8,23 @@ type Props = {
 export const NoteRow: React.FC<Props> = ({ note }) => {
   const dispatch = useDispatch();
 
-  // Action
+  // Handlers
   const editNoteClicked = () => {
     dispatch({
       type: "interface/editNoteClicked",
       payload: note.id,
     });
   };
+  const deleteNoteClicked = () => {
+    dispatch({ type: "notes/noteDeleted", payload: note.id });
+  };
+
+  const noteToggleClicked = () => {
+    dispatch({ type: "notes/noteToggled", payload: note.id });
+  };
 
   return (
-    <tr
-      className={note.archived ? "note hide" : "note"}
-      id={`"note-${note.id}"`}
-    >
+    <tr className="note" id={`"note-${note.id}"`}>
       <td className="icon-cell">
         <span className={`icon ${note.category.selector}`}>
           <i className={note.category.icon}></i>
@@ -36,8 +40,14 @@ export const NoteRow: React.FC<Props> = ({ note }) => {
           <span onClick={editNoteClicked} className="icon edit">
             <i className="fa-solid fa-pen-to-square"></i>
           </span>
-          <span className="icon archivate"></span>
-          <span className="icon delete">
+          <span onClick={noteToggleClicked} className="icon archivate">
+            {note.archived ? (
+              <i className="fa-solid fa-file-arrow-up"></i>
+            ) : (
+              <i className="fa-solid fa-file-arrow-down"></i>
+            )}
+          </span>
+          <span onClick={deleteNoteClicked} className="icon delete">
             <i className="fa-solid fa-trash"></i>
           </span>
         </div>
