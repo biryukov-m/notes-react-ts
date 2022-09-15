@@ -95,13 +95,14 @@ export const notesReducer: Reducer<any, any> = (
   }
 };
 
-const initialState = {
+const interfaceInitialState = {
   showPopup: false,
   updateNoteId: null,
+  filter: "Active",
 };
 
 export const interfaceReducer: Reducer<any, any> = (
-  state = initialState,
+  state = interfaceInitialState,
   action
 ) => {
   switch (action.type) {
@@ -116,6 +117,9 @@ export const interfaceReducer: Reducer<any, any> = (
         showPopup: true,
         updateNoteId: action.payload,
       });
+    }
+    case "interface/filterChanged": {
+      return Object.assign({}, state, { filter: action.payload });
     }
 
     default: {

@@ -9,8 +9,21 @@ import { NoteRow } from "./NotesNoteRow";
 
 const Notes: React.FC = () => {
   const notes: Array<Note> = useSelector((state: RootState) => state.notes);
+  const filter = useSelector((state: RootState) => state.interface.filter);
 
-  const renderedNotes = notes.map((note) => {
+  let filteredNotes;
+  switch (filter) {
+    case "Active":
+      filteredNotes = notes.filter((note) => !note.archived);
+      break;
+    case "Archived":
+      filteredNotes = notes.filter((note) => note.archived);
+      break;
+    default:
+      filteredNotes = notes;
+  }
+
+  const renderedNotes = filteredNotes.map((note) => {
     return <NoteRow note={note} key={note.id} />;
   });
 
