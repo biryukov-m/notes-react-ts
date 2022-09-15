@@ -1,0 +1,366 @@
+:root {
+  /* CSS HEX */
+  --lavender-web: #edeafaff;
+  --black-chocolate: #090f06ff;
+  --hookers-green: #4e6e5dff;
+  --amazon: #4e7b60ff;
+  --middle-green: #4e8862ff;
+  --forest-green-crayola: #4da167ff;
+  --dark-pastel-green: #3bc14aff;
+  --persian-orange: #d68c45ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--lavender-web);
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--black-chocolate);
+}
+
+body {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 1rem;
+}
+
+h2 {
+  color: var(--dark-pastel-green);
+  font-size: 1.3em;
+  font-weight: normal;
+}
+
+section header h2 {
+  text-align: left;
+}
+
+/* Control panel styles start */
+.control-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.control-panel header {
+  margin: 0.5rem 1.8rem 0;
+}
+
+.control-panel header .error {
+  color: var(--persian-orange);
+  transform: scale(1.1);
+  transition: all 0.6s ease-in;
+}
+
+.control-panel .top-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.control-panel .control i {
+  font-style: normal;
+  height: 1.8rem;
+  width: 1.8rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  background: var(--hookers-green);
+  color: var(--forest-green-crayola);
+  cursor: pointer;
+}
+
+.control-panel .add-note i {
+  font-size: 2.8rem;
+}
+
+.control-panel .control,
+.control-panel .control i {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-panel .control span {
+  font-size: 0.8rem;
+  letter-spacing: -1px;
+}
+
+.control-panel .control i:hover {
+  color: var(--lavender-web);
+}
+
+/* Control panel styles end */
+
+
+/* Styles tables start */
+table {
+  border: 0;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+thead tr {
+  background: var(--forest-green-crayola);
+}
+
+thead td {
+  padding-bottom: 2rem;
+}
+
+tbody tr {
+  background: var(--middle-green);
+}
+
+tbody tr:hover {
+  background: var(--persian-orange);
+}
+
+.clip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  max-width: 8.8rem;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--hookers-green);
+  color: var(--forest-green-crayola);
+  font-size: 1.1rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+/* Styles for all tables end */
+
+/* Notes table styling start */
+.notes-list table {
+  width: 100%;
+}
+
+.notes-list tbody tr.note .icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notes-list tbody tr.note :where(td, th) {
+  padding: 0.3rem 0.4rem;
+}
+
+.notes-list tbody tr.note th {
+  padding-left: 0;
+  max-width: 10rem;
+}
+
+.notes-list tbody tr.note .icon-cell {
+  padding-right: 0.3rem;
+}
+
+.notes-list tbody tr.note.hide {
+  display: none;
+}
+
+.notes-list tbody td.content {
+  max-width: 13rem;
+}
+
+.notes-list tbody td:where(.created, .category, .dates) {
+  font-size: 0.9rem;
+}
+
+.notes-list tbody .controls .wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.notes-list tbody .controls .icon {
+  font-size: 1.35rem;
+  width: 2.15rem;
+  height: 2.15rem;
+  cursor: pointer;
+}
+
+.notes-list tbody .controls .icon:hover {
+  color: var(--lavender-web);
+  transform: scale(1.1);
+}
+
+/* Notes table styling end */
+
+
+/* Summary table  start */
+.summary table {
+  max-width: 100%;
+}
+
+.summary header {
+  margin: 0.5rem 1.8rem 0;
+}
+
+.summary :where(th, td) {
+  padding: 0.5rem;
+}
+
+.summary td:first-of-type {
+  padding-left: 1rem;
+}
+
+.summary th:last-of-type {
+  padding-right: 1.2rem;
+}
+
+.summary th {
+  text-align: left;
+}
+
+.summary td {
+  text-align: center;
+}
+
+/* Summary table  start */
+
+/* Popup form start */
+.popup,
+.popup .content header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.popup-wrapper .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+/* .popup-wrapper,
+.popup-wrapper .popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.popup-wrapper.show,
+.popup-wrapper.show .popup {
+  opacity: 1;
+  pointer-events: auto;
+} */
+
+.popup .content {
+  width: calc(100% - 15px);
+  background: var(--middle-green);
+}
+
+.popup .content header {
+  padding: 0 25px;
+  border-bottom: 2px solid var(--hookers-green);
+}
+
+.popup .content .details {
+  max-height: 165px;
+  overflow-y: auto;
+}
+
+.popup .content header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup .content header p {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.popup .content header i {
+  color: var(--hookers-green);
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.popup .content header i:hover {
+  color: var(--persian-orange);
+}
+
+.popup .content form {
+  margin: 15px 25px 35px;
+}
+
+.popup .content form .row {
+  margin-bottom: 20px;
+}
+
+.popup .content form .row label {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.popup .content form :where(input, textarea, select) {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size: 18px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 2px solid var(--hookers-green);
+}
+
+.popup .content form :where(input:focus, textarea:focus, select:focus) {
+  border-color: var(--persian-orange);
+}
+
+.popup .content form textarea {
+  height: 150px;
+  resize: none;
+  padding: 8px 15px;
+}
+
+.popup .content form button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  background: var(--hookers-green);
+  color: var(--forest-green-crayola);
+}
+
+.popup .content form button:hover {
+  background: var(--persian-orange);
+  color: var(--lavender-web);
+}
+
+/* Popup form end */
