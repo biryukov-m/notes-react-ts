@@ -16,6 +16,7 @@ const Summary: React.FC = () => {
         name={row.name}
         active={row.active}
         archived={row.archived}
+        key={row.name}
       />
     );
   });

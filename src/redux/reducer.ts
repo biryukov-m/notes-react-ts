@@ -7,6 +7,7 @@ const store = configureStore({
     notes: notesReducer,
     interface: interfaceReducer,
   },
+  devTools: true,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
