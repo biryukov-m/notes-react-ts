@@ -2,6 +2,7 @@ import { INITIAL_NOTES, CATEGORIES } from "../utils/config";
 // Types
 import { Category } from "../utils/config";
 import { Reducer } from "react";
+import { ActionCreator, Action } from "@reduxjs/toolkit";
 
 export interface Note {
   id: number;
@@ -14,6 +15,27 @@ export interface Note {
 }
 
 let preloadedState = INITIAL_NOTES;
+
+// Actions
+export const noteCreated: ActionCreator<Action> = ({
+  title,
+  text,
+  category,
+  date,
+}) => ({
+  type: "notes/noteCreated",
+  payload: { title, text, category, date },
+});
+
+export const noteUpdated: ActionCreator<Action> = ({
+  id,
+  title,
+  text,
+  category,
+}) => ({
+  type: "notes/noteUpdated",
+  payload: { id, title, text, category },
+});
 
 const nextNoteId = (notes: Array<Note>) => {
   const maxId = notes.reduce((maxId, note) => Math.max(note.id, maxId), -1);

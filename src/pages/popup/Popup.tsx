@@ -1,27 +1,13 @@
 import React, { useState } from "react";
 // Redux
-import { Action, ActionCreator } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-//Helpers
+// Actions
+import { noteCreated, noteUpdated } from "../../redux/notesSlice";
+// Helpers
 import { getDate } from "../../utils/helpers";
 // Types
 import { RootState } from "../../redux/reducer";
 import { Note } from "../../redux/notesSlice";
-
-const noteCreated: ActionCreator<Action> = ({
-  title,
-  text,
-  category,
-  date,
-}) => ({
-  type: "notes/noteCreated",
-  payload: { title, text, category, date },
-});
-
-const noteUpdated: ActionCreator<Action> = ({ id, title, text, category }) => ({
-  type: "notes/noteUpdated",
-  payload: { id, title, text, category },
-});
 
 const Popup: React.FC = () => {
   const dispatch = useDispatch();

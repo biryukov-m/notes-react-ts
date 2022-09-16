@@ -15,6 +15,7 @@ export const NoteRow: React.FC<Props> = ({ note }) => {
       payload: note.id,
     });
   };
+
   const deleteNoteClicked = () => {
     dispatch({ type: "notes/noteDeleted", payload: note.id });
   };
