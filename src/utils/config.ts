@@ -15,6 +15,10 @@ const CATEGORIES = {
     icon: "fa-solid fa-lightbulb",
   },
 };
+export type Category = typeof CATEGORIES.idea;
+export type Categories = {
+  [key: string]: Category;
+};
 
 const INITIAL_NOTES = [
   {

@@ -1,12 +1,7 @@
 import { Reducer } from "react";
 import { INITIAL_NOTES, CATEGORIES } from "../utils/config";
-
-// Types
-interface Category {
-  name: string;
-  selector: string;
-  icon: string;
-}
+// Type
+import { Category } from "../utils/config";
 
 export interface Note {
   id: number;
