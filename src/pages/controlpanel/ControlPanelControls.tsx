@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
+import { RootState } from "../../redux/reducer";
 
 const ControlPanelControls: React.FC = () => {
   const dispatch = useDispatch();

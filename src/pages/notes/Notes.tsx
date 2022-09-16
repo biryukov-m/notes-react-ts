@@ -2,8 +2,8 @@ import React from "react";
 // Redux
 import { useSelector } from "react-redux";
 // Types
-import { Note } from "../../redux/reducer";
-import { RootState } from "../../redux/store";
+import { Note } from "../../redux/notesSlice";
+import { RootState } from "../../redux/reducer";
 // Components
 import { NoteRow } from "./NotesNoteRow";
 

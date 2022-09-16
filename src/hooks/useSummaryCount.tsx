@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 // Helpers
 import { calculateSummary } from "../utils/helpers";
 // Types
-import { Note } from "../redux/reducer";
-import { RootState } from "../redux/store";
+import { Note } from "../redux/notesSlice";
+import { RootState } from "../redux/reducer";
 import { CATEGORIES } from "../utils/config";
 
 export const useSummaryCount = () => {

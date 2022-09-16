@@ -1,5 +1,5 @@
 // Types
-import { Note } from "../redux/reducer";
+import { Note } from "../redux/notesSlice";
 import { Categories } from "./config";
 // Config
 

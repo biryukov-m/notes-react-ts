@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 //Helpers
 import { getDate } from "../../utils/helpers";
 // Types
-import { RootState } from "../../redux/store";
-import { Note } from "../../redux/reducer";
+import { RootState } from "../../redux/reducer";
+import { Note } from "../../redux/notesSlice";
 
 const noteCreated: ActionCreator<Action> = ({
   title,

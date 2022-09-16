@@ -1,6 +1,7 @@
 import React from "react";
 import { useSummaryCount } from "../../hooks/useSummaryCount";
 import { SummaryTableRow } from "./SummaryTableRow";
+// Types
 import { SummaryData } from "../../utils/helpers";
 
 const Summary: React.FC = () => {

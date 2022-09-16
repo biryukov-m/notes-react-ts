@@ -8,7 +8,7 @@ import Table from "../../components/Table";
 // Redux
 import { useSelector } from "react-redux";
 // Types
-import { RootState } from "../../redux/store";
+import { RootState } from "../../redux/reducer";
 
 const Main: React.FC = () => {
   const showPopup = useSelector(
