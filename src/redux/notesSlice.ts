@@ -2,7 +2,7 @@ import { INITIAL_NOTES, CATEGORIES } from "../utils/config";
 // Types
 import { Category } from "../utils/config";
 import { Reducer } from "react";
-import { ActionCreator, Action } from "@reduxjs/toolkit";
+import { ActionCreator, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Note {
   id: number;
@@ -17,7 +17,14 @@ export interface Note {
 let preloadedState = INITIAL_NOTES;
 
 // Actions
-export const noteCreated: ActionCreator<Action> = ({
+export type NoteCreated = {
+  title: string;
+  text: string;
+  category: string;
+  date: string;
+};
+
+export const noteCreated: ActionCreator<PayloadAction<NoteCreated>> = ({
   title,
   text,
   category,
@@ -27,7 +34,14 @@ export const noteCreated: ActionCreator<Action> = ({
   payload: { title, text, category, date },
 });
 
-export const noteUpdated: ActionCreator<Action> = ({
+export type NoteUpdated = {
+  id: number;
+  title: string;
+  text: string;
+  category: string;
+};
+
+export const noteUpdated: ActionCreator<PayloadAction<NoteUpdated>> = ({
   id,
   title,
   text,
