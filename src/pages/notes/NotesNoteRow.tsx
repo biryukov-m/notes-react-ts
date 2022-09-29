@@ -25,31 +25,49 @@ export const NoteRow: React.FC<Props> = ({ note }) => {
   };
 
   return (
-    <tr className="note" id={`"note-${note.id}"`}>
-      <td className="icon-cell">
-        <span className={`icon ${note.category.selector}`}>
+    <tr
+      className="bg-middle-green hover:bg-persian-orange"
+      id={`"note-${note.id}"`}
+    >
+      <td className="flex flex-col items-center justify-center px-1 py-1.5">
+        <span
+          className="flex flex-col items-center justify-center bg-hookers-green 
+        text-forest text-lg rounded-full w-8 h-8"
+        >
           <i className={note.category.icon}></i>
         </span>
       </td>
-      <th className="name clip">{note.title}</th>
-      <td className="created">{note.date}</td>
-      <td className="category">{note.category.name}</td>
-      <td className="content clip">{note.text}</td>
-      <td className="dates clip">{note.dates}</td>
-      <td className="controls">
-        <div className="wrapper">
-          <span onClick={editNoteClicked} className="icon edit">
-            <i className="fa-solid fa-pen-to-square"></i>
+      <th className="clip px-1 py-1.5 pl-0 max-w-xs">{note.title}</th>
+      <td className="text-sm px-1 py-1.5">{note.date}</td>
+      <td className="text-sm px-1 py-1.5">{note.category.name}</td>
+      <td className="max-w-xs clip px-1 py-1.5">{note.text}</td>
+      <td className="text-sm clip px-1 py-1.5">{note.dates}</td>
+      <td className="px-1 py-1.5">
+        <div className="flex justify-center gap-3">
+          <span
+            onClick={editNoteClicked}
+            className="flex flex-col items-center justify-center bg-hookers-green 
+            text-forest text-xl rounded-full w-8 h-8"
+          >
+            <i className="cursor-pointer hover:text-lavender-web fa-solid fa-pen-to-square"></i>
           </span>
-          <span onClick={noteToggleClicked} className="icon archivate">
+          <span
+            onClick={noteToggleClicked}
+            className="flex flex-col items-center justify-center bg-hookers-green 
+            text-forest text-xl rounded-full w-8 h-8"
+          >
             {note.archived ? (
-              <i className="fa-solid fa-file-arrow-up"></i>
+              <i className="cursor-pointer hover:text-lavender-web fa-solid fa-file-arrow-up"></i>
             ) : (
-              <i className="fa-solid fa-file-arrow-down"></i>
+              <i className="cursor-pointer hover:text-lavender-web fa-solid fa-file-arrow-down"></i>
             )}
           </span>
-          <span onClick={deleteNoteClicked} className="icon delete">
-            <i className="fa-solid fa-trash"></i>
+          <span
+            onClick={deleteNoteClicked}
+            className="flex flex-col items-center justify-center bg-hookers-green 
+            text-forest text-xl rounded-full w-8 h-8"
+          >
+            <i className="cursor-pointer hover:text-lavender-web fa-solid fa-trash"></i>
           </span>
         </div>
       </td>

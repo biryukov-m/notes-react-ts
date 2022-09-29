@@ -17,8 +17,8 @@ const ControlPanelBreadCrumbs: React.FC = () => {
   }
 
   return (
-    <header>
-      <h2>{header}</h2>
+    <header className="mt-2 mx-7 mb-0">
+      <h2 className="text-xl font-normal text-dark-pastel-green">{header}</h2>
     </header>
   );
 };

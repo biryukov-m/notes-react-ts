@@ -19,10 +19,10 @@ const Main: React.FC = () => {
     <main>
       {showPopup && <Popup />}
       <ControlPanel />
-      <Table sectionClass="notes-list">
+      <Table>
         <Notes />
       </Table>
-      <Table sectionClass="summary">
+      <Table>
         <Summary />
       </Table>
     </main>

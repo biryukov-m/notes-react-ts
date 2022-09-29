@@ -62,44 +62,78 @@ const Popup: React.FC = () => {
   };
 
   return (
-    <div className="popup-wrapper">
-      <div className="popup">
-        <div className="content">
-          <header>
-            <p>{note ? "Update a note" : "Add a new note"}</p>
-            <i onClick={handleCloseIconClick}>X</i>
+    <div className="fixed top-0 left-0 h-full w-full bg-black/50 z-20">
+      <div
+        className="popup absolute top-1/2 left-1/2 z-20 max-w-screen-sm w-full 
+      rounded justify-center -translate-x-1/2 -translate-y-1/2"
+      >
+        <div className="content w-11/12 bg-middle-green px-3 pt-5 pb-7">
+          <header
+            className="flex flex-row items-center justify-between pt-0 pb-2 px-6 
+          border-b-hookers-green border-b-2 border-solid "
+          >
+            <p className="text-3xl font-medium">
+              {note ? "Update a note" : "Add a new note"}
+            </p>
+            <i
+              className="text-3xl cursor-pointer text-hookers-green hover:text-persian-orange"
+              onClick={handleCloseIconClick}
+            >
+              X
+            </i>
           </header>
-          <form action="#">
-            <div className="row title">
-              <label>Title</label>
+          <form className="mt-4 mx-6" action="#">
+            <div className="row title mb-5">
+              <label className="block text-xl mb-2">Title</label>
               <input
                 required
                 type="text"
                 onChange={handleTitleChange}
                 defaultValue={title}
+                className="w-full h-12 outline-none text-lg py-0 px-4 rounded 
+                border-b-hookers-green border-b-2 border-solid focus:border-persian-orange"
               />
             </div>
-            <div className="row category">
-              <label>Category</label>
-              <select defaultValue={category} onChange={handleCategoryChange}>
+            <div className="row category mb-5">
+              <label className="block text-xl mb-2">Category</label>
+              <select
+                className="w-full h-12 outline-none text-lg py-0 px-4 rounded 
+                border-b-hookers-green border-b-2 border-solid focus:border-persian-orange"
+                defaultValue={category}
+                onChange={handleCategoryChange}
+              >
                 <option value="task">Task</option>
                 <option value="idea">Idea</option>
                 <option value="random">Random thought</option>
               </select>
             </div>
-            <div className="row description">
-              <label className="">Description</label>
+            <div className="row description mb-5">
+              <label className="block text-xl mb-2">Description</label>
               <textarea
                 required
                 onChange={handleTextChange}
-                className="details"
+                className="max-h-full h-40 overflow-y-auto w-full resize-none outline-none
+                 text-lg py-2 px-4 rounded border-b-hookers-green border-b-2 border-solid
+                  focus:border-persian-orange"
                 defaultValue={text}
               ></textarea>
             </div>
             {note ? (
-              <button onClick={handleUpdateClick}>Update a Note</button>
+              <button
+                className="w-full h-12 border-none outline-none cursor-pointer text-lg rounded 
+                bg-hookers-green text-forest hover:bg-persian-orange hover:text-lavender-web"
+                onClick={handleUpdateClick}
+              >
+                Update a Note
+              </button>
             ) : (
-              <button onClick={handleAddClick}>Add Note</button>
+              <button
+                className="w-full h-12 border-none outline-none cursor-pointer text-lg rounded 
+                bg-hookers-green text-forest hover:bg-persian-orange hover:text-lavender-web"
+                onClick={handleAddClick}
+              >
+                Add Note
+              </button>
             )}
           </form>
         </div>

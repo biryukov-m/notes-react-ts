@@ -29,14 +29,27 @@ const ControlPanelControls: React.FC = () => {
   }
 
   return (
-    <div className="top-controls">
-      <div className="control add-note">
-        <i onClick={handleAddNoteClick}>+</i>
-        <span>Add new note</span>
+    <div className="flex gap-2">
+      <div className="flex justify-center items-center flex-col">
+        <i
+          className="flex justify-center items-center flex-col 
+          font-normal h-7 w-7 rounded-full bg-hookers-green 
+          text-forest not-italic cursor-pointer text-4xl 
+          hover:text-lavender-web"
+          onClick={handleAddNoteClick}
+        >
+          +
+        </i>
+        <span className="text-base tracking-tighter">Add new note</span>
       </div>
-      <div className="control show-archive">
-        <i onClick={handleToggleShow} className={icon}></i>
-        <span>{buttonText}</span>
+      <div className="flex justify-center items-center flex-col">
+        <i
+          className={`flex justify-center items-center flex-col 
+          h-7 w-7 text-base rounded-full bg-hookers-green
+          text-forest cursor-pointer ${icon} hover:text-lavender-web`}
+          onClick={handleToggleShow}
+        ></i>
+        <span className="text-base tracking-tighter">{buttonText}</span>
       </div>
     </div>
   );

@@ -30,8 +30,8 @@ const Notes: React.FC = () => {
   return (
     <>
       <thead>
-        <tr>
-          <td></td>
+        <tr className="bg-forest">
+          <td className="pb-8"></td>
           <th>Name</th>
           <th>Created</th>
           <th>Category</th>

@@ -22,22 +22,24 @@ const Summary: React.FC = () => {
   });
 
   return (
-    <>
+    <div className="max-w-full">
       <caption>
         <header>
-          <h2>Summary</h2>
+          <h2 className="px-7 my-3 text-xl font-normal text-dark-pastel-green text-left">
+            Summary
+          </h2>
         </header>
       </caption>
       <thead>
-        <tr>
-          <td></td>
-          <th>Category</th>
-          <th>Active</th>
-          <th>Archived</th>
+        <tr className="bg-forest">
+          <td className="p-2 pb-8 pl-4"></td>
+          <th className="p-2 pl-0 text-left">Category</th>
+          <th className="p-2">Active</th>
+          <th className="p-2">Archived</th>
         </tr>
       </thead>
       <tbody>{renderedRows}</tbody>
-    </>
+    </div>
   );
 };
 
