@@ -1,5 +1,4 @@
 import { INITIAL_NOTES, CATEGORIES } from "../utils/config";
-// Types
 import { Category } from "../utils/config";
 import { Reducer } from "react";
 import { ActionCreator, PayloadAction } from "@reduxjs/toolkit";
@@ -16,7 +15,6 @@ export interface Note {
 
 let preloadedState = INITIAL_NOTES;
 
-// Actions
 export type NoteCreated = {
   title: string;
   text: string;

@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// Helpers
 import { calculateSummary } from "../utils/helpers";
-// Types
 import { Note } from "../redux/notesSlice";
 import { RootState } from "../redux/reducer";
 import { CATEGORIES } from "../utils/config";

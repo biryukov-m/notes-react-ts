@@ -8,7 +8,6 @@ type Props = {
 export const NoteRow: React.FC<Props> = ({ note }) => {
   const dispatch = useDispatch();
 
-  // Handlers
   const editNoteClicked = () => {
     dispatch({
       type: "interface/editNoteClicked",

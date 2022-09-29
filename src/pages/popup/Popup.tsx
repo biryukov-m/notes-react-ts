@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-// Redux
 import { useDispatch, useSelector } from "react-redux";
-// Actions
 import { noteCreated, noteUpdated } from "../../redux/notesSlice";
-// Helpers
 import { getDate } from "../../utils/helpers";
-// Types
 import { RootState } from "../../redux/reducer";
 import { Note } from "../../redux/notesSlice";
 
@@ -27,7 +23,6 @@ const Popup: React.FC = () => {
   );
   const [text, setText] = useState(note ? note.text : "");
 
-  // Click and onchange handlers
   const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setTitle(event.target.value);
 

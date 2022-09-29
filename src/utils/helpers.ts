@@ -1,7 +1,5 @@
-// Types
 import { Note } from "../redux/notesSlice";
 import { Categories } from "./config";
-// Config
 
 const MONTHS = [
   "January",

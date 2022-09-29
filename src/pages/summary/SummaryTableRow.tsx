@@ -7,7 +7,6 @@ type Props = {
 };
 
 export const SummaryTableRow: React.FC<Props> = ({
-  selector,
   icon,
   name,
   active,
