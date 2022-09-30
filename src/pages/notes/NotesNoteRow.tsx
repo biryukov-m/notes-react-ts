@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { Note } from "../../redux/notesSlice";
 
-type Props = {
+export type Props = {
   note: Note;
 };
 

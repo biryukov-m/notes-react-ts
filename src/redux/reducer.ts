@@ -1,12 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { interfaceReducer } from "./interfaceSlice";
 import { notesReducer } from "./notesSlice";
 
+export const rootReducer = combineReducers({
+  notes: notesReducer,
+  interface: interfaceReducer,
+});
+
 const store = configureStore({
-  reducer: {
-    notes: notesReducer,
-    interface: interfaceReducer,
-  },
+  reducer: rootReducer,
   devTools: true,
 });
 
