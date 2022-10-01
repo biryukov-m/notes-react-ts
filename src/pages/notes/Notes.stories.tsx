@@ -10,72 +10,18 @@ export default {
   decorators: [],
 } as ComponentMeta<typeof Notes>;
 
+const defaultNote = {
+  id: 0,
+  date: "April 2, 2021",
+  title: "Invention idea",
+  text: "If i can find out how to do that thing",
+  category: CATEGORIES.idea,
+  dates: "",
+  archived: false,
+};
+
 const mockedState = {
-  notes: [
-    {
-      id: 0,
-      date: "April 2, 2021",
-      title: "Invention idea",
-      text: "If i can find out how to do that thing",
-      category: CATEGORIES.idea,
-      dates: "",
-      archived: false,
-    },
-    {
-      id: 1,
-      date: "April 5, 2021",
-      title: "The theory of evolution",
-      text: "What if dinosaurs was",
-      category: CATEGORIES.random,
-      dates: "12/20/2012, 01/01/2022",
-      archived: false,
-    },
-    {
-      id: 2,
-      date: "April 7, 2021",
-      title: "Shopping list",
-      text: "Tomatoes, bread",
-      category: CATEGORIES.task,
-      dates: "12/20/2012",
-      archived: false,
-    },
-    {
-      id: 3,
-      date: "April 7, 2021",
-      title: "Invention idea",
-      text: "If i can find out how to do that thing",
-      category: CATEGORIES.idea,
-      dates: "",
-      archived: false,
-    },
-    {
-      id: 4,
-      date: "April 9, 2021",
-      title: "The theory of evolution",
-      text: "What if dinosaurs was",
-      category: CATEGORIES.random,
-      dates: "12/20/2012, 01/01/2022",
-      archived: false,
-    },
-    {
-      id: 5,
-      date: "April 20, 2021",
-      title: "Shopping list",
-      text: "Tomatoes, bread",
-      category: CATEGORIES.task,
-      dates: "12/20/2012",
-      archived: false,
-    },
-    {
-      id: 6,
-      date: "April 2, 2021",
-      title: "Invention idea",
-      text: "If i can find out how to do that thing",
-      category: CATEGORIES.idea,
-      dates: "",
-      archived: true,
-    },
-  ],
+  notes: [defaultNote],
   interface: {
     showPopup: false,
     updateNoteId: null,
@@ -101,6 +47,80 @@ showArchived.decorators = [
 
 showArchived.parameters = {
   store: {
-    initialState: mockedState,
+    initialState: {
+      ...mockedState,
+      notes: [
+        {
+          ...defaultNote,
+          title: "Archived note #1",
+          text: "Text of archived note #1",
+          archived: true,
+        },
+        {
+          ...defaultNote,
+          title: "Archived note #2",
+          text: "Text of archived note #2",
+          archived: true,
+        },
+      ],
+      interface: { filter: "Archived" },
+    },
+  },
+};
+
+export const showActive = Template.bind({});
+
+showActive.decorators = [
+  withStore,
+  (story) => <Table sectionClass={"notes-list"}>{story()}</Table>,
+];
+//
+showActive.parameters = {
+  store: {
+    initialState: {
+      ...mockedState,
+      notes: [
+        {
+          ...defaultNote,
+          title: "Active note #1",
+          text: "Text of active note #1",
+        },
+        {
+          ...defaultNote,
+          id: 1,
+          title: "Active note #2",
+          text: "Text of active note #2",
+        },
+        {
+          ...defaultNote,
+          id: 2,
+          title: "Active note #3",
+          text: "Text of active note #3",
+          category: CATEGORIES.random,
+        },
+        {
+          ...defaultNote,
+          id: 3,
+          title: "Active note #4",
+          text: "Text of active note #4",
+          category: CATEGORIES.random,
+        },
+        {
+          ...defaultNote,
+          id: 4,
+          title: "Active note #5",
+          text: "Text of active note #5",
+          category: CATEGORIES.task,
+        },
+        {
+          ...defaultNote,
+          id: 5,
+          title: "Active note #6",
+          text: "Text of active note #6",
+          category: CATEGORIES.task,
+        },
+      ],
+      interface: { filter: "Active" },
+    },
   },
 };
